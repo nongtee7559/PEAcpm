@@ -9,12 +9,21 @@ class BottomNavScreen extends StatefulWidget {
 
 class _BottomNavScreenState extends State<BottomNavScreen> {
   final List _screens = [
+    Scaffold(),
+    Scaffold(),
     ScreenHome(),
     Scaffold(),
-    Scaffold(),
-    Scaffold(),
+    Scaffold()
   ];
-  int _currentIndex = 0;
+
+  final List title = [
+    Text('Profile'),
+    Text('Report'),
+    Text('Home'),
+    Text('Notification'),
+    Text('Setting')
+  ];
+  int _currentIndex = 2;
 
   @override
   Widget build(BuildContext context) {
@@ -26,29 +35,29 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
           onTap: (index) => setState(() => _currentIndex = index),
           type: BottomNavigationBarType.fixed,
           backgroundColor: Colors.white,
-          showSelectedLabels: false,
-          showUnselectedLabels: false,
           selectedItemColor: Colors.white,
           unselectedItemColor: Colors.grey,
-          elevation: 0.0,
-          items: [Icons.home, Icons.insert_chart, Icons.event_note, Icons.info]
+          items: [
+            Icons.account_circle,
+            Icons.import_contacts_outlined,
+            Icons.home,
+            Icons.notifications_outlined,
+            Icons.settings_outlined
+          ]
               .asMap()
               .map(
                 (key, value) => MapEntry(
                   key,
                   BottomNavigationBarItem(
-                    title: Text(''),
+                    title: _currentIndex == key ? Text('') : title[key],
                     icon: Container(
-                      padding: const EdgeInsets.symmetric(
-                        vertical: 6.0,
-                        horizontal: 16.0,
-                      ),
-                      decoration: BoxDecoration(
-                        color: _currentIndex == key
-                            ? Color.fromRGBO(58, 58, 95, 1)
-                            : Colors.transparent,
-                        borderRadius: BorderRadius.circular(20.0),
-                      ),
+                      width: 50,
+                      height: 50,
+                      decoration: _currentIndex == key
+                          ? BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Color.fromRGBO(58, 58, 95, 1))
+                          : null,
                       child: Icon(value),
                     ),
                   ),
@@ -62,30 +71,31 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
           onTap: (index) => setState(() => _currentIndex = index),
           type: BottomNavigationBarType.fixed,
           backgroundColor: Colors.white,
-          showSelectedLabels: false,
-          showUnselectedLabels: false,
           selectedItemColor: Colors.white,
           unselectedItemColor: Colors.grey,
           elevation: 0.0,
           iconSize: 45,
-          items: [Icons.home, Icons.insert_chart, Icons.event_note, Icons.info]
+          items: [
+            Icons.account_circle,
+            Icons.import_contacts_outlined,
+            Icons.home,
+            Icons.notifications_outlined,
+            Icons.settings_outlined
+          ]
               .asMap()
               .map(
                 (key, value) => MapEntry(
                   key,
                   BottomNavigationBarItem(
-                    title: Text(''),
+                    title: _currentIndex == key ? Text('') : title[key],
                     icon: Container(
-                      padding: const EdgeInsets.symmetric(
-                        vertical: 6.0,
-                        horizontal: 16.0,
-                      ),
-                      decoration: BoxDecoration(
-                        color: _currentIndex == key
-                            ? Color.fromRGBO(58, 58, 95, 1)
-                            : Colors.transparent,
-                        borderRadius: BorderRadius.circular(20.0),
-                      ),
+                      width: 60,
+                      height: 60,
+                      decoration: _currentIndex == key
+                          ? BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Color.fromRGBO(58, 58, 95, 1))
+                          : null,
                       child: Icon(value),
                     ),
                   ),

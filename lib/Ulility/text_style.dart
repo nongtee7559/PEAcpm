@@ -7,6 +7,11 @@ final TextStyle wl17Style = GoogleFonts.kanit(
   fontWeight: FontWeight.w500,
   letterSpacing: 1,
 );
+final TextStyle wl15Style = GoogleFonts.kanit(
+  fontSize: 15.0,
+  color: Colors.white,
+  letterSpacing: 1,
+);
 final TextStyle bl22Style = GoogleFonts.kanit(
   fontSize: 22.0,
   color: Colors.black,
@@ -54,6 +59,11 @@ final TextStyle wl55Style = GoogleFonts.kanit(
   color: Colors.white,
   fontWeight: FontWeight.bold,
   letterSpacing: 1,
+);
+final TextStyle wl50Style = GoogleFonts.kanit(
+  fontSize: 50.0,
+  fontWeight: FontWeight.w100,
+  color: Colors.white,
 );
 final TextStyle wl14Style = GoogleFonts.kanit(
   fontSize: 14.0,

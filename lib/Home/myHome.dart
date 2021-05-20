@@ -14,7 +14,7 @@ class _ScreenHomeState extends State<ScreenHome> {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       // appBar: CustomAppBar(),
-      backgroundColor: Colors.black12.withOpacity(0.3),
+      backgroundColor: Colors.grey.shade200,
       body: CustomScrollView(
         physics: ClampingScrollPhysics(),
         slivers: [showHeader(size), showMenu(size)],
@@ -22,13 +22,16 @@ class _ScreenHomeState extends State<ScreenHome> {
     );
   }
 
-  SliverToBoxAdapter showHeader(size) {
+  SliverToBoxAdapter showHeader(Size size) {
     return SliverToBoxAdapter(
       child: Container(
         padding: EdgeInsets.only(bottom: 20),
-        height: 450,
+        height: size.height / 2.5,
         decoration: BoxDecoration(
+          color: Color.fromRGBO(58, 58, 95, 1),
           image: DecorationImage(
+            colorFilter: new ColorFilter.mode(
+                Colors.black.withOpacity(0.2), BlendMode.dstATop),
             image: AssetImage('asset/image/background_home.png'),
             fit: BoxFit.cover,
           ),
@@ -38,17 +41,36 @@ class _ScreenHomeState extends State<ScreenHome> {
           ),
         ),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            SizedBox(
-              height: 50,
+            Spacer(flex: 3),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Spacer(flex: 3),
+                Container(
+                  width: 100,
+                  child: Image.asset('asset/image/Logo.png'),
+                ),
+                Spacer(flex: 1),
+                Container(
+                  child: Text(
+                    '|',
+                    style: wl50Style,
+                  ),
+                ),
+                Spacer(flex: 1),
+                Container(
+                  child: Text(
+                    'Work D',
+                    style: wl30Style,
+                  ),
+                ),
+                Spacer(flex: 3),
+              ],
             ),
-            Container(
-              width: 100,
-              child: Image.asset('asset/image/Logo.png'),
-            ),
-            SizedBox(
-              height: 10,
-            ),
+            Spacer(flex: 1),
             CircleAvatar(
               radius: 40,
               child: CircleAvatar(
@@ -56,23 +78,20 @@ class _ScreenHomeState extends State<ScreenHome> {
                 backgroundImage: AssetImage('asset/image/user.png'),
               ),
             ),
-            SizedBox(
-              height: 10,
-            ),
+            Spacer(flex: 1),
             Text('Mr.Manager ProjectManager', style: wl17Style),
-            Text('5430001', style: wl14Style),
-            Text('Field Worker', style: wl14Style)
+            Text('5430001', style: wl15Style),
+            Text('Field Worker', style: wl15Style)
           ],
         ),
       ),
     );
   }
 
-  SliverToBoxAdapter showMenu(size) {
+  SliverToBoxAdapter showMenu(Size size) {
     return SliverToBoxAdapter(
       child: Container(
         padding: EdgeInsets.all(20.0),
-        // color: Colors.orange,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
