@@ -33,7 +33,7 @@ class _PincodeTabletState extends State<PincodeTablet> {
         ),
         Container(
           child: Image.asset(
-            'asset/image/Logo.png',
+            'asset/image/s_pea_logo.png',
             width: 250,
             height: 100,
             fit: BoxFit.fill,

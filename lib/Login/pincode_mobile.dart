@@ -1,10 +1,11 @@
 import 'package:cpm/Home/component/button_nav_screen.dart';
+import 'package:cpm/Ulility/constants.dart';
 import 'package:cpm/Ulility/normal_dialog.dart';
 import 'package:cpm/Ulility/text_style.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import 'UI/Login/cpm_login.dart';
+import 'UI/Pincode/component/circle.dart';
 
 class PincodeMobile extends StatefulWidget {
   @override
@@ -13,12 +14,6 @@ class PincodeMobile extends StatefulWidget {
 
 class _PincodeMobileState extends State<PincodeMobile> {
   List<String> currentPin = ["", "", "", "", "", "", ""];
-  TextEditingController pinOneController = TextEditingController();
-  TextEditingController pinTwoController = TextEditingController();
-  TextEditingController pinThreeController = TextEditingController();
-  TextEditingController pinFourController = TextEditingController();
-  TextEditingController pinFiveController = TextEditingController();
-  TextEditingController pinSixController = TextEditingController();
 
   var outlineInputBorder = OutlineInputBorder(
     borderRadius: BorderRadius.circular(10.0),
@@ -31,7 +26,7 @@ class _PincodeMobileState extends State<PincodeMobile> {
       child: Column(children: [
         // buildExitButton(),
         IconButton(
-            icon: Image.asset('asset/image/Logo.png'),
+            icon: Image.asset('asset/image/s_pea_logo.png'),
             iconSize: 140,
             onPressed: () {}),
         Container(
@@ -205,8 +200,10 @@ class _PincodeMobileState extends State<PincodeMobile> {
     if (pinIndex == 0)
       pinIndex = 1;
     else if (pinIndex < 6) pinIndex++;
-    setPin(pinIndex, text);
-    currentPin[pinIndex - 1] = text;
+    // setPin(pinIndex, text);
+    setState(() {
+      currentPin[pinIndex - 1] = text;
+    });
     String strPin = "";
     currentPin.forEach((element) {
       strPin += element;
@@ -218,58 +215,17 @@ class _PincodeMobileState extends State<PincodeMobile> {
           (route) => false);
   }
 
-  setPin(int n, String text) {
-    switch (n) {
-      case 1:
-        pinOneController.text = text;
-        break;
-      case 2:
-        pinTwoController.text = text;
-        break;
-      case 3:
-        pinThreeController.text = text;
-        break;
-      case 4:
-        pinFourController.text = text;
-        break;
-      case 5:
-        pinFiveController.text = text;
-        break;
-      case 6:
-        pinSixController.text = text;
-        break;
-      default:
-    }
-  }
-
   buildPinRow() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        PINNumber(
-          outlineInputBorder: outlineInputBorder,
-          textEditingController: pinOneController,
-        ),
-        PINNumber(
-          outlineInputBorder: outlineInputBorder,
-          textEditingController: pinTwoController,
-        ),
-        PINNumber(
-          outlineInputBorder: outlineInputBorder,
-          textEditingController: pinThreeController,
-        ),
-        PINNumber(
-          outlineInputBorder: outlineInputBorder,
-          textEditingController: pinFourController,
-        ),
-        PINNumber(
-          outlineInputBorder: outlineInputBorder,
-          textEditingController: pinFiveController,
-        ),
-        PINNumber(
-          outlineInputBorder: outlineInputBorder,
-          textEditingController: pinSixController,
-        ),
+        for (int i = 0; i < 6; i++)
+          Container(
+            margin: EdgeInsets.all(8),
+            child: Circle(
+              filled: currentPin[i] != "",
+            ),
+          )
       ],
     );
   }
@@ -278,13 +234,15 @@ class _PincodeMobileState extends State<PincodeMobile> {
     if (pinIndex == 0)
       pinIndex = 0;
     else if (pinIndex == 6) {
-      setPin(pinIndex, "");
-      currentPin[pinIndex - 1] = "";
-      pinIndex--;
+      setState(() {
+        currentPin[pinIndex - 1] = "";
+        pinIndex--;
+      });
     } else {
-      setPin(pinIndex, "");
-      currentPin[pinIndex - 1] = "";
-      pinIndex--;
+      setState(() {
+        currentPin[pinIndex - 1] = "";
+        pinIndex--;
+      });
     }
   }
 
@@ -316,31 +274,6 @@ class _PincodeMobileState extends State<PincodeMobile> {
   }
 }
 
-class PINNumber extends StatelessWidget {
-  final TextEditingController textEditingController;
-  final OutlineInputBorder outlineInputBorder;
-  PINNumber({this.outlineInputBorder, this.textEditingController});
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 20.0,
-      height: 20.0,
-      child: TextFormField(
-        controller: textEditingController,
-        enabled: false,
-        obscureText: true,
-        textAlign: TextAlign.center,
-        decoration: InputDecoration(
-            contentPadding: EdgeInsets.only(bottom: 78),
-            border: outlineInputBorder,
-            filled: true,
-            fillColor: Colors.white30),
-        style: wl30Style,
-      ),
-    );
-  }
-}
-
 class KeyboardNumber extends StatelessWidget {
   const KeyboardNumber({Key key, this.n, this.onPressed}) : super(key: key);
   final int n;
@@ -365,7 +298,8 @@ class KeyboardNumber extends StatelessWidget {
         height: 90.0,
         child: Text(
           '$n',
-          style: GoogleFonts.kanit(
+          style: TextStyle(
+              fontFamily: 'NotoSansThai',
               color: Colors.white,
               fontSize: 30 * MediaQuery.of(context).textScaleFactor),
         ),

@@ -47,7 +47,7 @@ class _CPMLoginState extends State<CPMLogin> {
                   // crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Image.asset(
-                      "asset/image/Logo.png",
+                      "asset/image/s_pea_logo.png",
                       width: 250,
                       height: 100,
                       fit: BoxFit.fill,
@@ -188,7 +188,7 @@ class _CPMLoginState extends State<CPMLogin> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   // crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Image.asset("asset/image/Logo.png"),
+                    Image.asset("asset/image/s_pea_logo.png"),
                     Container(
                       width: 125,
                       child: Divider(

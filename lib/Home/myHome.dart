@@ -28,16 +28,19 @@ class _ScreenHomeState extends State<ScreenHome> {
         padding: EdgeInsets.only(bottom: 20),
         height: size.height / 2.5,
         decoration: BoxDecoration(
-          color: Color.fromRGBO(58, 58, 95, 1),
+          gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [Color.fromRGBO(45, 7, 59, 1), Colors.black]),
           image: DecorationImage(
             colorFilter: new ColorFilter.mode(
-                Colors.black.withOpacity(0.2), BlendMode.dstATop),
-            image: AssetImage('asset/image/background_home.png'),
+                Colors.black.withOpacity(0.7), BlendMode.dstATop),
+            image: AssetImage('asset/image/new_background_home.png'),
             fit: BoxFit.cover,
           ),
           borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(60.0),
-            bottomRight: Radius.circular(60.0),
+            bottomLeft: Radius.circular(16.0),
+            bottomRight: Radius.circular(16.0),
           ),
         ),
         child: Column(
@@ -51,14 +54,13 @@ class _ScreenHomeState extends State<ScreenHome> {
                 Spacer(flex: 3),
                 Container(
                   width: 100,
-                  child: Image.asset('asset/image/Logo.png'),
+                  child: Image.asset('asset/image/s_pea_logo.png'),
                 ),
                 Spacer(flex: 1),
                 Container(
-                  child: Text(
-                    '|',
-                    style: wl50Style,
-                  ),
+                  height: 30,
+                  decoration:
+                      BoxDecoration(border: Border.all(color: Colors.white)),
                 ),
                 Spacer(flex: 1),
                 Container(
@@ -73,10 +75,7 @@ class _ScreenHomeState extends State<ScreenHome> {
             Spacer(flex: 1),
             CircleAvatar(
               radius: 40,
-              child: CircleAvatar(
-                radius: 39,
-                backgroundImage: AssetImage('asset/image/user.png'),
-              ),
+              backgroundImage: AssetImage('asset/image/user.png'),
             ),
             Spacer(flex: 1),
             Text('Mr.Manager ProjectManager', style: wl17Style),
@@ -100,7 +99,7 @@ class _ScreenHomeState extends State<ScreenHome> {
               height: 80,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: Color.fromRGBO(58, 58, 95, 1),
+                color: Color(0xffAB7A10),
               ),
               alignment: Alignment.center,
               child: MaterialButton(
@@ -110,7 +109,7 @@ class _ScreenHomeState extends State<ScreenHome> {
                   borderRadius: BorderRadius.circular(60.0),
                 ),
                 height: 90.0,
-                child: Text('CPM', style: wl22Style),
+                child: Image.asset('asset/image/CPM.png'),
               ),
             ),
           ],

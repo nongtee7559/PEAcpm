@@ -5,10 +5,12 @@ import 'package:google_fonts/google_fonts.dart';
 
 class ConfirmPincodeScreenMobile extends StatefulWidget {
   @override
-  _ConfirmPincodeScreenMobileState createState() => _ConfirmPincodeScreenMobileState();
+  _ConfirmPincodeScreenMobileState createState() =>
+      _ConfirmPincodeScreenMobileState();
 }
 
-class _ConfirmPincodeScreenMobileState extends State<ConfirmPincodeScreenMobile> {
+class _ConfirmPincodeScreenMobileState
+    extends State<ConfirmPincodeScreenMobile> {
   List<String> currentPin = ["", "", "", "", "", "", ""];
   TextEditingController pinOneController = TextEditingController();
   TextEditingController pinTwoController = TextEditingController();
@@ -28,7 +30,7 @@ class _ConfirmPincodeScreenMobileState extends State<ConfirmPincodeScreenMobile>
       child: Column(children: [
         // buildExitButton(),
         IconButton(
-            icon: Image.asset('asset/image/Logo.png'),
+            icon: Image.asset('asset/image/s_pea_logo.png'),
             iconSize: 140,
             onPressed: () {}),
         Container(

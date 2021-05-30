@@ -36,13 +36,13 @@ class _CreatePincodeScreenTabletState extends State<CreatePincodeScreenTablet> {
           height: 100,
         ),
         Image.asset(
-          'asset/image/Logo.png',
+          'asset/image/s_pea_logo.png',
           width: 250,
           height: 100,
           fit: BoxFit.fill,
         ),
         // IconButton(
-        //     icon: Image.asset('asset/image/Logo.png'),
+        //     icon: Image.asset('asset/image/s_pea_logo.png'),
         //     iconSize: 200,
         //     onPressed: () {}),
         Container(
@@ -323,7 +323,7 @@ class PINNumber extends StatelessWidget {
         obscuringCharacter: '*',
         textAlign: TextAlign.center,
         decoration: InputDecoration(
-          isDense: true,
+            isDense: true,
             contentPadding: EdgeInsets.all(0),
             //  borderRadius: BorderRadius.circular(10),
             border: OutlineInputBorder(

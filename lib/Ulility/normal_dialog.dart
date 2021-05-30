@@ -1,3 +1,4 @@
+import 'package:cpm/Ulility/constants.dart';
 import 'package:cpm/Ulility/text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
@@ -17,7 +18,7 @@ Future<void> normalDialog(
           style: wl14Style,
         ),
         onPressed: () => Navigator.pop(context),
-        color: Color.fromRGBO(83, 83, 125, 1),
+        color: primaryColor,
       ),
     ],
   ).show();
@@ -38,7 +39,7 @@ Future<void> normalDialogTablet(
           style: wl14Style,
         ),
         onPressed: () => Navigator.pop(context),
-        color: Color.fromRGBO(83, 83, 125, 1),
+        color: primaryColor,
       ),
     ],
   ).show();
@@ -61,7 +62,7 @@ Future<void> normalDialogrequirementTablet(
           style: wl35Style,
         ),
         onPressed: () => Navigator.pop(context),
-        color: Color.fromRGBO(83, 83, 125, 1),
+        color: primaryColor,
       )
     ],
   ).show();
@@ -82,7 +83,7 @@ Future<void> normalDialogrequirement(
           style: wl14Style,
         ),
         onPressed: () => Navigator.pop(context),
-        color: Color.fromRGBO(83, 83, 125, 1),
+        color: primaryColor,
       )
     ],
   ).show();

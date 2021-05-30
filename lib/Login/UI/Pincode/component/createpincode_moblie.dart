@@ -5,7 +5,8 @@ import 'package:google_fonts/google_fonts.dart';
 
 class CreatePincodeScreenMobile extends StatefulWidget {
   @override
-  _CreatePincodeScreenMobileState createState() => _CreatePincodeScreenMobileState();
+  _CreatePincodeScreenMobileState createState() =>
+      _CreatePincodeScreenMobileState();
 }
 
 class _CreatePincodeScreenMobileState extends State<CreatePincodeScreenMobile> {
@@ -28,7 +29,7 @@ class _CreatePincodeScreenMobileState extends State<CreatePincodeScreenMobile> {
       child: Column(children: [
         // buildExitButton(),
         IconButton(
-            icon: Image.asset('asset/image/Logo.png'),
+            icon: Image.asset('asset/image/s_pea_logo.png'),
             iconSize: 140,
             onPressed: () {}),
         Container(

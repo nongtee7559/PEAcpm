@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:cpm/Home/component/button_nav_screen.dart';
 import 'package:cpm/Login/screen_Login.dart';
 import 'package:cpm/Ulility/background-image.dart';
+import 'package:cpm/Ulility/constants.dart';
 import 'package:cpm/Ulility/text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -19,11 +20,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-        primaryColor: Color.fromRGBO(58, 58, 95, 1),
-      ),
+      theme: ThemeData(primaryColor: primaryColor, fontFamily: 'NotoSansThai'),
       title: 'CPM Demo',
-
       home: MyFirstpage(),
       // home: BackgroundHomeImage(),
     );
@@ -90,7 +88,7 @@ class _MyFirstpageState extends State<MyFirstpage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset(
-                'asset/image/Logo.png',
+                'asset/image/l_pea_logo.png',
                 width: 250,
                 height: 100,
                 fit: BoxFit.fill,
@@ -109,55 +107,90 @@ class _MyFirstpageState extends State<MyFirstpage> {
             color: Colors.white,
           ),
         ),
-        Text(
-          'Work D',
-          style: wl55Style,
-        )
+        Image.asset('asset/image/WorkD.png')
       ],
     );
   }
 
   Widget showMobile(Size size) {
-    return Column(
+    return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Padding(
-          padding: const EdgeInsets.only(bottom: 20),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'ยินดีตอนรับ',
-                style: wl30Style,
-              ),
-            ],
-          ),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Spacer(
+              flex: 7,
+            ),
+            Text(
+              'ยินดีต้อนรับ',
+              style: wl30Style,
+            ),
+            Spacer(),
+            Padding(
+              padding: const EdgeInsets.only(right: 30),
+              child: Image.asset('asset/image/l_pea_logo.png'),
+            ),
+            Spacer(),
+            Container(
+              width: 173,
+              decoration:
+                  BoxDecoration(border: Border.all(color: Colors.white)),
+            ),
+            Spacer(),
+            Image.asset('asset/image/WorkD.png'),
+            Spacer(),
+            SpinKitCircle(
+              color: Colors.white,
+              size: 25.0,
+            ),
+            Spacer(
+              flex: 7,
+            ),
+          ],
         ),
-        Padding(
-          padding: const EdgeInsets.only(bottom: 20),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.asset('asset/image/Logo.png'),
-              SpinKitCircle(
-                color: Colors.white,
-                size: 25.0,
-              )
-            ],
-          ),
-        ),
-        Container(
-          width: 125,
-          child: Divider(
-            thickness: 3,
-            color: Colors.white,
-          ),
-        ),
-        Text(
-          'Work D',
-          style: wl35Style,
-        )
       ],
     );
   }
+
+  // Widget showMobile(Size size) {
+  //   return Column(
+  //     mainAxisAlignment: MainAxisAlignment.center,
+  //     children: [
+  //       Padding(
+  //         padding: const EdgeInsets.only(bottom: 20),
+  //         child: Row(
+  //           mainAxisAlignment: MainAxisAlignment.center,
+  //           children: [
+  //             Text(
+  //               'ยินดีตอนรับ',
+  //               style: wl30Style,
+  //             ),
+  //           ],
+  //         ),
+  //       ),
+  //       Padding(
+  //         padding: const EdgeInsets.only(bottom: 20),
+  //         child: Row(
+  //           mainAxisAlignment: MainAxisAlignment.center,
+  //           children: [
+  //             Image.asset('asset/image/s_pea_logo.png'),
+  //             SpinKitCircle(
+  //               color: Colors.white,
+  //               size: 25.0,
+  //             )
+  //           ],
+  //         ),
+  //       ),
+  //       Container(
+  //         width: 125,
+  //         child: Divider(
+  //           thickness: 3,
+  //           color: Colors.white,
+  //         ),
+  //       ),
+  //       Image.asset('asset/image/WorkD.png')
+  //     ],
+  //   );
+  // }
 }
